@@ -16,28 +16,37 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
  
 public class Main extends Application {
+	
+	private static Stage stg;
     @Override
-    public void start(Stage stage) {
+    public void start(Stage primarystage) {
 
     	try {
+    		stg = primarystage;
+    		primarystage.setResizable(true);
          	Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
     		Scene scene = new Scene(root);
     		String css = this.getClass().getResource("application.css").toExternalForm();
     		scene.getStylesheets().add(css);
-    		stage.setResizable(false);
-    		stage.setTitle("Schermata di login");
-	        stage.setScene(scene);
-	        stage.show();
+	        primarystage.setScene(scene);
+	        primarystage.show();
 	        
 	    }
         catch(IOException e) {
 	    	e.printStackTrace();	    	
 	    }
     }
+    public void changeScene(String fxml) throws IOException{
+    	Parent pane = FXMLLoader.load(getClass().getResource(fxml));
+    	stg.getScene().setRoot(pane);
+		
+	}  
    
     public static void main(String[] args) {
         launch(args);
-    }  
+    }
+
+	
 }
 
 
