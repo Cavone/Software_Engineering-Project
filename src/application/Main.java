@@ -1,6 +1,10 @@
 package application;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
-
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -42,9 +46,14 @@ public class Main extends Application {
 		
 	}  
    
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException, IOException {
+
         launch(args);
     }
+
+
+
+
 
 	
 }

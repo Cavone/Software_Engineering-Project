@@ -1,11 +1,15 @@
 package application;
-public class Lavoratore extends Persona{
+
+import java.io.Serializable;
+import java.time.LocalDate;
+
+public class Lavoratore extends Persona implements Serializable{
 	private String name;
 	private String surname;
-	private final Date date;
+	private final LocalDate date;
 	private final String luogo;
-	private final String telephone;
-	private final String email;
+	private String telephone;
+	private String email;
     private String[] languages;	
     private String nation;
 	private String address;
@@ -24,7 +28,7 @@ periodi e le zone (comuni), per i quali il lavoratore è disponibile. Di ogni la
 anche le informazioni di almeno una persona da avvisare in caso di urgenza: nome, cognome,
 telefono, indirizzo email.
 	 */
-	public Lavoratore(String name, String surname, Date date, 
+	public Lavoratore(String name, String surname, LocalDate date, 
 			String luogo,String telephone,String email,String[] languages, String nation, String address,
 			String license,
 			Boolean isAutomunito, ContattoDiEmergenza contatto) { 
@@ -46,6 +50,19 @@ telefono, indirizzo email.
 	} 
 	
 	
+	public Lavoratore(String name, String surname, LocalDate date, 
+			String address) { 
+		
+		this.name = name;
+		this.surname = surname;
+		this.date = date;
+		this.address = address;
+		this.luogo = "";
+		
+
+	} 
+	
+	
 	public String toString() {
 		//TODO
 		return name + surname;
@@ -55,6 +72,10 @@ telefono, indirizzo email.
 	
 	public int hashCode() { 
 		return (int) (name.hashCode() * surname.hashCode() * date.hashCode());
+	}
+	
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }
